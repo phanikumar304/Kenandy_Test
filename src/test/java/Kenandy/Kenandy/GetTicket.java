@@ -16,9 +16,8 @@ public class GetTicket {
 	
 	static WebDriver driver = null;
 	
-	@Before
-	public void getDriver(){
-		
+	
+	public static void main(String[] args) throws IOException{
 		driver = new ChromeDriver();
 		driver.manage().timeouts().implicitlyWait(100, TimeUnit.SECONDS);
 		driver.get("http://newtours.demoaut.com");
@@ -26,10 +25,6 @@ public class GetTicket {
 		System.out.println(text);
 		Assert.assertEquals("Welcome: Mercury Tours", "Welcome: Mercury Tours");
 		System.out.println("The page is at Home Page");
-	}
-	
-	@Test
-	public void bookFlight() throws IOException{
 		AccountRegister.cReg(driver);
 		AccountRegister.enterTheDet(driver);
 		AccountRegister.clickSubmit(driver);
